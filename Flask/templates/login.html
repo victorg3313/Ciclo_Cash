@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio de Sesión - Ciclo Cash</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+
+<header>
+    <img src="{{ url_for('static', filename='images/Ciclo-Cash.jpeg') }}" alt="Ciclo Cash Logo">
+    <h1>Ciclo Cash - Inicio de Sesión</h1>
+</header>
+
+<div class="container">
+    <form method="POST" action="{{ url_for('login') }}">
+        <label for="username">Nombre de Usuario</label>
+        <input type="text" id="username" name="username" required>
+
+        <label for="password">Contraseña</label>
+        <input type="password" id="password" name="password" required>
+
+        <button type="submit" class="btn">Iniciar Sesión</button>
+    </form>
+
+    <div class="extra-actions">
+        <p>¿No tienes una cuenta?</p>
+        <a href="{{ url_for('registro') }}" class="btn-secondary">Registrar Usuario</a>
+    </div>
+</div>
+
+</body>
+</html>

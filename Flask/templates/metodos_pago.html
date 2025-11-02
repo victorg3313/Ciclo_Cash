@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Métodos de Pago - Ciclo Cash</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+
+<header>
+    <img src="{{ url_for('static', filename='images/Ciclo-Cash.jpeg') }}" alt="Ciclo Cash Logo">
+    <h1>Métodos de Pago</h1>
+</header>
+
+<div class="payment-method-container">
+    <form action="{{ url_for('metodos_pago', id_cliente=id_cliente, prestamo=prestamo) }}" method="POST">
+        <h2>Selecciona el Método de Pago</h2>
+
+        <label for="meses">Plazo de Pago:</label>
+        <select name="meses" required>
+            <option value="3">3 meses (5% interés)</option>
+            <option value="6">6 meses (10% interés)</option>
+            <option value="9">9 meses (20% interés)</option>
+            <option value="12">12 meses (25% interés)</option>
+        </select>
+
+        <label for="dia_pago">Día de Pago:</label>
+        <select name="dia_pago" required>
+            <option value="1">Primer día del mes</option>
+            <option value="15">Día 15 del mes</option>
+        </select>
+
+        <button type="submit" class="btn-primary">Registrar Método de Pago</button>
+    </form>
+</div>
+
+</body>
+</html>

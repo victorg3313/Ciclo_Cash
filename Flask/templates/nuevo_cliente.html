@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registrar Cliente - Ciclo Cash</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+
+<header>
+    <img src="{{ url_for('static', filename='images/Ciclo-Cash.jpeg') }}" alt="Ciclo Cash Logo">
+    <h1>Registrar Cliente</h1>
+</header>
+
+<div class="register-container">
+    <form action="{{ url_for('nuevo_cliente') }}" method="POST" enctype="multipart/form-data">
+        <label for="nombre">Nombre:</label>
+        <input type="text" name="nombre" required>
+
+        <label for="apellido">Apellido:</label>
+        <input type="text" name="apellido" required>
+
+        <label for="telefono">Teléfono:</label>
+        <input type="text" name="telefono" required>
+
+        <label for="direccion">Dirección:</label>
+        <input type="text" name="direccion" required>
+
+        <label for="aval">Aval:</label>
+        <input type="text" name="aval" required>
+
+        <label for="telefono_aval">Teléfono del Aval:</label>
+        <input type="text" name="telefono_aval" required>
+
+        <label for="prestamo">Monto del Préstamo:</label>
+        <input type="number" step="0.01" name="prestamo" required>
+
+        <label for="credencial_cliente">Credencial del Cliente:</label>
+        <input type="file" name="credencial_cliente" required>
+
+        <label for="credencial_aval">Credencial del Aval:</label>
+        <input type="file" name="credencial_aval" required>
+
+        <label for="comprobante_domicilio">Comprobante de Domicilio:</label>
+        <input type="file" name="comprobante_domicilio" required>
+
+        <button type="submit" class="btn-primary">Registrar Cliente</button>
+    </form>
+</div>
+
+</body>
+</html>

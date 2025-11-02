@@ -1,0 +1,152 @@
+/* General Styles */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #5a9fff, #0047ab);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    min-height: 100vh;
+    color: #fff;
+}
+
+header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+header img {
+    max-width: 150px;
+    margin-bottom: 1rem;
+}
+
+h1 {
+    font-size: 2rem;
+    text-align: center;
+}
+
+/* Container Styles */
+.container {
+    width: 100%;
+    max-width: 500px; /* Ancho máximo del formulario */
+    margin: 2rem auto; /* Centra horizontalmente */
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+.extra-actions {
+    margin-top: 1.5rem;
+}
+
+.extra-actions p {
+    margin-bottom: 0.5rem;
+}
+
+/* Botones */
+.btn, .btn-secondary {
+    display: inline-block;
+    padding: 0.8rem 1.5rem;
+    margin-top: 1rem;
+    border-radius: 20px;
+    text-align: center;
+    font-size: 1rem;
+    font-weight: bold;
+    text-decoration: none;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.btn {
+    background: #0047ab;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background: #00337a;
+    transform: scale(1.05);
+}
+
+.btn-secondary {
+    background: #ffcc00;
+    color: #000;
+}
+
+.btn-secondary:hover {
+    background: #e6b800;
+    transform: scale(1.05);
+}
+
+/* Dashboard Section */
+.dashboard-section {
+    margin-bottom: 2rem;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 1rem;
+    border-radius: 20px;
+    text-align: left;
+}
+
+.dashboard-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+} 
+
+/* Formulario */
+.container form {
+    display: flex;
+    flex-direction: column; /* Asegura que los campos estén en columna */
+    gap: 1.5rem;
+}
+
+.form-group {
+    text-align: left;
+    display: flex;
+    flex-direction: column; /* Coloca el label encima del input */
+}
+
+label {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+input, textarea {
+    width: 95%; 
+    padding: .8rem; 
+    border: 1.5px solid #ccc;
+    border-radius: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+input:focus, textarea:focus {
+    outline: none;
+    border-color: #0047ab;
+    box-shadow: 0 0 5px rgba(0, 71, 171, 0.5);
+}
+
+/* Botones del Formulario */
+button {
+    width: 90%;
+    padding: 1rem;
+    background: linear-gradient(135deg, #0047ab, #005eff);
+    color: #fff;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+button:hover {
+    background: linear-gradient(135deg, #00337a, #0047ab);
+    transform: scale(1.05);
+}

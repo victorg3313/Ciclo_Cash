@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registros - Ciclo Cash</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <script>
+        function validarAbono(input, maxDeuda) {
+            const valor = parseFloat(input.value);
+            if (isNaN(valor)) {
+                alert('Por favor ingrese un número válido.');
+                input.value = '';
+                return false;
+            }
+            if (valor < 1) {
+                alert('El monto a abonar debe ser mayor o igual a 1. Este pago no se puede realizar.');
+                input.value = '';
+                return false;
+            }
+            if (valor > maxDeuda) {
+                alert('El monto a abonar no puede ser mayor a la deuda. Pago mayor a la deuda.');
+                input.value = '';
+                return false;
+            }
+            return true;
+        }
+    </script>
+</head>
+<body>
+
+<header>
+    <img src="{{ url_for('static', filename='images/Ciclo-Cash.jpeg') }}" alt="Ciclo Cash Logo">
+    <h1>Registros - Bienvenido {{ username }}</h1>
+</header>
+
+<div class="dashboard-container">
+    <div class="dashboard-section">
+        <h2>Clientes con Deudas</h2>
+        <ul>
+            {% for cliente in clientes_con_deuda %}
+                <li>
+                    <p>cliente: {{ cliente.nombre }} {{ cliente.apellido }}  dirección: {{ cliente.direccion }} celular: {{ cliente.telefono }} deuda: ${{ cliente.prestamo }}</p>
+                    <form action="{{ url_for('registro_pago') }}" method="POST" onsubmit="return validarAbono(this.monto_pagado, cliente.prestamo)">
+                        <input type="hidden" name="id_cliente" value="{{ cliente.id }}">
+                        <label for="monto_pagado">Monto a Abonar:</label>
+                        <input type="number" step="0.01" name="monto_pagado" required>
+                        <button type="submit" class="btn-secondary">Abonar</button>
+                    </form>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+
+    <div class="dashboard-section">
+        <h2>Total de Clientes</h2>
+        <p>{{ total_clientes }}</p>
+    </div>
+
+    <div class="dashboard-actions">
+        <a href="{{ url_for('nuevo_cliente') }}" class="btn">Registrar Nuevo Cliente</a>
+        <form action="{{ url_for('logout') }}" method="POST" style="display: inline;">
+            <button type="submit" class="btn-secondary">Cerrar Sesión</button>
+        </form>
+    </div>
+</div>
+
+</body>
+</html>
